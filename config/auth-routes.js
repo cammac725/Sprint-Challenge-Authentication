@@ -14,7 +14,6 @@ function register(req, res) {
   let user = req.body;
   const hash = bcrypt.hashSync(user.password, 10);
   user.password = hash;
-
   Users.add(user)
     .then(added => {
       res.status(201).json(added)
